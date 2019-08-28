@@ -6,7 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import io.finnsweb.swolenation.utilities.DATABASE_NAME
+import io.finnsweb.swolenation.workers.SeedDatabaseWorker
 
 @Database(entities = [Workout::class, Exercise::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
@@ -28,7 +30,8 @@ abstract class AppDatabase : RoomDatabase() {
                 .addCallback(object : Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        val request = OneTimeWorkRequestBuilder<>()
+                        val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>().build()
+                        WorkManager.getInstance(context).enqueue(request)
                     }
                 })
                 .build()

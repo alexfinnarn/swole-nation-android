@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import io.finnsweb.swolenation.databinding.FragmentMainBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,9 +43,9 @@ class MainFragment : Fragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-//        val binding: FragmentMainBinding = DataBindingUtil.inflate<>()
+        val binding: FragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
 
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return binding.root
     }
 
     // TODO: Rename method, update argument and hook method into UI event

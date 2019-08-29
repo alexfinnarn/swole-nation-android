@@ -15,10 +15,10 @@ import androidx.room.PrimaryKey
     )]
 )
 data class Exercise(
-    @PrimaryKey
     var machineName: String,
     var label: String,
-    var sets: Map<Int, Double>,
+    var sets: List<Set>,
+    var intervals: List<Int>,
     var equipment: String
 ) {
     @PrimaryKey(autoGenerate = true)

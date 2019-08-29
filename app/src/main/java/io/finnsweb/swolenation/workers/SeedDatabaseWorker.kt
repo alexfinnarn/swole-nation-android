@@ -37,26 +37,26 @@ class SeedDatabaseWorker(
                 }
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Error seeding workouts to the database", e)
+            Log.e(TAG, "toooo the database", e)
             Result.failure()
         }
 
         // Seed exercises.
-        try {
-            applicationContext.assets.open(EXERCISES_FILENAME).use { inputStream ->
-                JsonReader(inputStream.reader()).use {jsonReader ->
-                    val exerciseType = object : TypeToken<List<Exercise>>(){}.type
-                    val exerciseList: List<Exercise> = Gson().fromJson(jsonReader, exerciseType)
-
-                    val database = AppDatabase.getInstance(applicationContext)
-                    database.exerciseDao().insertAll(exerciseList)
-
-                    Result.success()
-                }
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "Error seeding exercises to the database", e)
-            Result.failure()
-        }
+//        try {
+//            applicationContext.assets.open(EXERCISES_FILENAME).use { inputStream ->
+//                JsonReader(inputStream.reader()).use {jsonReader ->
+//                    val exerciseType = object : TypeToken<List<Exercise>>(){}.type
+//                    val exerciseList: List<Exercise> = Gson().fromJson(jsonReader, exerciseType)
+//
+//                    val database = AppDatabase.getInstance(applicationContext)
+//                    database.exerciseDao().insertAll(exerciseList)
+//
+//                    Result.success()
+//                }
+//            }
+//        } catch (e: Exception) {
+//            Log.e(TAG, "Error seeding exercises to the database", e)
+//            Result.failure()
+//        }
     }
 }

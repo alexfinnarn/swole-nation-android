@@ -19,15 +19,16 @@ abstract class AppDatabase : RoomDatabase() {
         // https://gist.github.com/florina-muntenescu/697e543652b03d3d2a06703f5d6b44b5
         @Volatile private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(context: Context): AppDatabase =
-            INSTANCE ?: synchronized(this) {
+        fun getInstance(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
                 INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
             }
+        }
 
-        private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
+        private fun buildDatabase(context: Context): AppDatabase {
+            return Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DATABASE_NAME)
                 // prepopulate the database after onCreate was called
-                .addCallback(object : Callback() {
+                .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
                         val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>().build()
@@ -35,6 +36,6 @@ abstract class AppDatabase : RoomDatabase() {
                     }
                 })
                 .build()
-
+        }
     }
 }

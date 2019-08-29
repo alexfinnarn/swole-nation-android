@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Swole Nation</string>
+    <string name="last_workout_main">Last Workout</string>
+    <string name="button_go">Go</string>
+    <string name="button_edit">Edit</string>
+    <string name="next_workout_main">Next Workout</string>
+    <string name="workouts">Workouts</string>
+    <string name="exercises">Exercises</string>
 </resources>

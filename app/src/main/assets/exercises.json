@@ -1,0 +1,25 @@
+[
+  {
+    "machineName": "squats_warmup_stronglifts",
+    "label": "Squats Warmup",
+    "sets": {
+      "1": 45.0,
+      "2": 45.0,
+      "3": 95.0,
+      "4": 135.0,
+      "5": 185.0,
+      "6": 205.0
+    }
+  },
+  {
+    "machineName": "squats_main_stronglifts",
+    "label": "Squats Workout",
+    "sets": {
+      "1": 235.0,
+      "2": 235.0,
+      "3": 235.0,
+      "4": 235.0,
+      "5": 235.0
+    }
+  }
+]

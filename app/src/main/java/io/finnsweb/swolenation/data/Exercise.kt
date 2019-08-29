@@ -16,7 +16,8 @@ import androidx.room.PrimaryKey
 )
 data class Exercise(
     @PrimaryKey
-    var name: String,
+    var machineName: String,
+    var label: String,
     var sets: Map<Int, Double>,
     var equipment: String
 ) {

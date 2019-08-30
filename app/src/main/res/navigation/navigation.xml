@@ -8,5 +8,14 @@
         android:id="@+id/mainFragment"
         android:name="io.finnsweb.swolenation.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main"/>
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_listWorkoutFragment"
+            app:destination="@id/listWorkoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listWorkoutFragment"
+        android:name="io.finnsweb.swolenation.ListWorkoutFragment"
+        android:label="fragment_list_workout_list"
+        tools:layout="@layout/fragment_list_workout_list" />
 </navigation>

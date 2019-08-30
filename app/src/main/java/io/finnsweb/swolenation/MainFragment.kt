@@ -42,8 +42,8 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        // Inflate the layout for this fragment
-        val binding: FragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
+        // Inflate the layout for this fragment.
+        val binding = FragmentMainBinding.inflate(inflater, container, false)
 
         return binding.root
     }

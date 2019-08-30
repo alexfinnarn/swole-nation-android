@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import io.finnsweb.swolenation.databinding.FragmentMainBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,8 +43,9 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        // Inflate the layout for this fragment
-        val binding: FragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
+        val binding = FragmentMainBinding.inflate(inflater, container, false)
+
+        setOnClickListeners(binding)
 
         return binding.root
     }
@@ -65,6 +67,14 @@ class MainFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    private fun setOnClickListeners(binding: FragmentMainBinding) {
+
+        // Edit workouts.
+        binding.editWorkoutsButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_mainFragment_to_listWorkoutFragment)
+        )
     }
 
     /**

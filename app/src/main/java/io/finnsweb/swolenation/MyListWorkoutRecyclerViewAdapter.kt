@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 
-import io.finnsweb.swolenation.ListWorkoutFragment.OnListFragmentInteractionListener
+import io.finnsweb.swolenation.ListWorkoutFragment.OnWorkoutListFragmentInteractionListener
 import io.finnsweb.swolenation.data.Workout
 
 import kotlinx.android.synthetic.main.fragment_list_workout.view.*
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_list_workout.view.*
  */
 class MyListWorkoutRecyclerViewAdapter(
     private val mValues: List<Workout>,
-    private val mListener: OnListFragmentInteractionListener?
+    private val mListener: OnWorkoutListFragmentInteractionListener?
 ) : RecyclerView.Adapter<MyListWorkoutRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
@@ -29,7 +29,7 @@ class MyListWorkoutRecyclerViewAdapter(
             val item = v.tag as Workout
             // Notify the active callbacks interface (the activity, if the fragment is attached to
             // one) that an item has been selected.
-            mListener?.onListFragmentInteraction(item)
+            mListener?.onWorkoutListFragmentInteraction(item)
         }
     }
 

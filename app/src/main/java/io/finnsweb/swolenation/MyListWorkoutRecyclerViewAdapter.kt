@@ -8,7 +8,7 @@ import android.widget.TextView
 
 
 import io.finnsweb.swolenation.ListWorkoutFragment.OnListFragmentInteractionListener
-import io.finnsweb.swolenation.dummy.DummyContent.DummyItem
+import io.finnsweb.swolenation.data.Workout
 
 import kotlinx.android.synthetic.main.fragment_list_workout.view.*
 
@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_list_workout.view.*
  * TODO: Replace the implementation with code for your data type.
  */
 class MyListWorkoutRecyclerViewAdapter(
-    private val mValues: List<DummyItem>,
+    private val mValues: List<Workout>,
     private val mListener: OnListFragmentInteractionListener?
 ) : RecyclerView.Adapter<MyListWorkoutRecyclerViewAdapter.ViewHolder>() {
 
@@ -26,7 +26,7 @@ class MyListWorkoutRecyclerViewAdapter(
 
     init {
         mOnClickListener = View.OnClickListener { v ->
-            val item = v.tag as DummyItem
+            val item = v.tag as Workout
             // Notify the active callbacks interface (the activity, if the fragment is attached to
             // one) that an item has been selected.
             mListener?.onListFragmentInteraction(item)
@@ -41,8 +41,8 @@ class MyListWorkoutRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues[position]
-        holder.mIdView.text = item.id
-        holder.mContentView.text = item.content
+        holder.mIdView.text = item.name
+        holder.mContentView.text = item.description
 
         with(holder.mView) {
             tag = item

@@ -11,9 +11,10 @@ import androidx.room.PrimaryKey
 )
 data class Workout(
     var name: String,
-    var exercises: List<Exercise>?,
-    var startTime: Int?,
-    var endTime: Int?
+    var description: String
+//    var exercises: List<Exercise>?,
+//    var startTime: Int?,
+//    var endTime: Int?
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

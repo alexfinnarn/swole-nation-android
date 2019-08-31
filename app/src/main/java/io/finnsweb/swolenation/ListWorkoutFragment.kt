@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import io.finnsweb.swolenation.data.Workout
 
 import io.finnsweb.swolenation.dummy.DummyContent
 import io.finnsweb.swolenation.dummy.DummyContent.DummyItem
@@ -39,6 +40,11 @@ class ListWorkoutFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_list_workout_list, container, false)
 
+        val workouts: List<Workout> = listOf(
+            Workout(name = "Stronglifts A", description = "Squats, Overhead Press, Deadlifts"),
+            Workout(name = "Stronglifts B", description = "Squats, Bench Press, Barbell Row")
+        )
+
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {
@@ -46,7 +52,7 @@ class ListWorkoutFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyListWorkoutRecyclerViewAdapter(DummyContent.ITEMS, listener)
+                adapter = MyListWorkoutRecyclerViewAdapter(workouts, listener)
             }
         }
         return view
@@ -79,7 +85,7 @@ class ListWorkoutFragment : Fragment() {
      */
     interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onListFragmentInteraction(item: DummyItem?)
+        fun onListFragmentInteraction(item: Workout?)
     }
 
     companion object {
